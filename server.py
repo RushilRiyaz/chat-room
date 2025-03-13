@@ -139,7 +139,7 @@ class ChatServer:
                 try:
                     message = client_socket.recv(1024).decode().strip()
                     if message:
-                        if message.upper() == 'EXIT':
+                        if message.upper() == '/EXIT':
                             break
                         self.notify_observers(message, username)
                     else:

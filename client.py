@@ -135,7 +135,7 @@ class ChatClient:
                 self.username = server_message.split(':')[1]
                 self.connected_to_chat = True
                 self.gui.display_message(f'Login successful. Welcome {self.username}!')
-                self.gui.display_message('You can now start chatting. Type "Exit" to quit.')
+                self.gui.display_message('You can now start chatting. Type "/exit" to quit.')
                 self.gui.display_message('Type "/mute" to mute notifications, "/unmute" to unmute them.')
                 return True
             
@@ -143,7 +143,7 @@ class ChatClient:
                 self.username = server_message.split(':')[1]
                 self.connected_to_chat = True
                 self.gui.display_message(f'Registration successful. Welcome {self.username}!')
-                self.gui.display_message('You can now start chatting. Type "Exit" to quit.')
+                self.gui.display_message('You can now start chatting. Type "/exit" to quit.')
                 self.gui.display_message('Type "/mute" to mute notifications, "/unmute" to unmute them.')
                 return True
             
@@ -212,7 +212,7 @@ class ChatClient:
 
         # Handle command messages
         if client_message.upper() == '/EXIT':
-            self.client_socket.send('EXIT'.encode())
+            self.client_socket.send('/EXIT'.encode())
             self.gui.display_message('Exiting chat...')
             self.running = False
             self.gui.root.quit()
